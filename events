@@ -1,0 +1,42 @@
+
+      
+
+      
+
+      function onMouseMove(event) {
+        event.preventDefault();
+
+        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        var intersects = raycaster.intersectObjects(scene.children, true);
+        for (var i = 0; i < intersects.length; i++) {
+          intersects[i].object.material.color.set(0xff0000)
+        }
+      }
+
+      render();
+
+      this.tl = new TimelineMax({ paused: true });
+      this.tl.to(this.mesh.scale, 1, { x: 2, ease: Expo.easeOut });
+      this.tl.to(this.mesh.scale, 0.5, { x: 0.5, ease: Expo.easeOut });
+      this.tl.to(this.mesh.position, 0.5, { x: 2, ease: Expo.easeOut });
+      this.tl.to(
+        this.mesh.rotation,
+        0.5,
+        {
+          y: Math.PI * 0.5,
+          ease: Expo.easeOut,
+        },
+        "=-1.5"
+      );
+
+  
+      window.addEventListener("mousemove", () => {
+        this.tl.play();
+      });
+
+          window.addEventListener("mousemove", onMouseMove);
+      });

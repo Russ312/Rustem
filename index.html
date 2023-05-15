@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RUSSENGINEERING</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/path/to/parallax.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#eng" data-reload>English</a>
+    <a href="#rus" data-reload>Russian</a>
+    <section class="banner" id="sec">
+      <!-- Header -->
+      <header id="header">
+        <a href="http://linkedin.com/in/rustemzhibitayev" class="logo">RE</a>
+        <div id="toggle" onclick="toggle()"></div>
+      </header>
+
+      <div class="content">
+        <h2>Hello World,<br />We are <span>RUSSENGINEERING</span></h2>
+        <p>
+          The tragic events of 2019-2021 are now forcing us to transform the way we live, 
+          the way we collaborate and communicate. Now considering this situation,
+          Russ Engineering is sharing their vision of what the businesses of design and engineering services segments
+          should look like in the new post-pandemic world. We are on the verge of a new epoch and a different approach
+          to carrying out large scale projects is essential.
+          We are a new kind of a technology driven engineering consulting company:
+          a team of freelancing professionals distributed around the world and anyone can join us! Our values revolve around the idea of
+          a synergy among our diverse human talent and the drive to move progress further!
+          Our philosophy is completely libertarian and altruistic, as humanity needs to shift the approach
+          to providing goods and services to mobilize our capabilities in this new global economy we all will have to live in.
+          Our team strives to utilize the most current tools at the cutting edge of information technologies and automation to improve
+          the capabilities in creating new tools and built environment assets.
+          We believe that in the current pressing situation, anyone who is ready to contribute a positive impact
+          by inventing, innovating and creating new solutions that our planet has been begging for
+          ever since the beginning of modern civilization, should absolutely put in the effort at this desperate
+          time in the human history. Therefore, our online services operate on pure a client-specialist relationship basis.
+          You have a problem? We have the solution for you!
+          <center><p><a>It's time we REimagined the world together!</a></p></center>
+        </p>
+        <center><div class="iframe-container"><br><iframe width="560" height="315" src="https://www.youtube.com/embed/enwPkZK5M0Q" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></br></div></center>
+        <!-- <a href="#">Know More</a> -->
+      </div>
+      <ul class="sci">
+        <li>
+          <a href="#"><img src="facebook.png" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="linkedin.png" /></a>
+        </li>
+      </ul>
+    </section>
+    <div id="navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      function toggle() {
+        var sec = document.getElementById("sec");
+        var nav = document.getElementById("navigation");
+        sec.classList.toggle("active");
+        nav.classList.toggle("active");
+      }
+    </script>
+    <!-- Banner-->
+    <section class="banner" id="sec">
+      <title>
+      <center> <h1>Bringing Energy to Life</h1> </center>
+      </title>
+      <link rel="stylesheet" href="style.css"
+
+    </section>
+    <body>
+      <p> <h1><center>Inventing the Future...</center></h1></p>
+      <p> <h1><center>where everything just falls into place!</h1></p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+      <script>
+        var scene = new THREE.Scene();
+
+        var camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        camera.position.z = 5;
+
+        var renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setClearColor("#e5e5e5");
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        document.body.appendChild(renderer.domElement);
+
+        window.addEventListener("resize", () => {
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          camera.aspect = window.innerWidth / window.innerHeight;
+
+          camera.updateProjectionMatrix();
+        });
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        var material = new THREE.MeshLambertMaterial({ color: 0xf7f7f7 });
+        // var mesh = new THREE.Mesh(geometry, material);
+
+        // scene.add(mesh);
+
+        meshX = -10;
+        for (var i = 0; i < 15; i++) {
+          var mesh = new THREE.Mesh(geometry, material);
+          mesh.position.x = (Math.random() - 0.5) * 10;
+          mesh.position.y = (Math.random() - 0.5) * 10;
+          mesh.position.z = (Math.random() - 0.5) * 10;
+          scene.add(mesh);
+          meshX += 1;
+        }
+
+        var light = new THREE.PointLight(0xffffff, 1, 1000);
+        light.position.set(0, 0, 0);
+        scene.add(light);
+
+        var light = new THREE.PointLight(0xffffff, 2, 1000);
+        light.position.set(0, 0, 25);
+        scene.add(light);
+
+        var render = function () {
+          requestAnimationFrame(render);
+
+          renderer.render(scene, camera);
+        };
+
+        function onMouseMove(event) {
+          event.preventDefault();
+
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+          raycaster.setFromCamera(mouse, camera);
+
+          var intersects = raycaster.intersectObjects(scene.children, true);
+          for (var i = 0; i < intersects.length; i++) {
+            this.tl = new TimelineMax();
+            this.tl.to(intersects[i].object.scale, 1, {
+              x: 2,
+              ease: Expo.easeOut,
+            });
+            this.tl.to(intersects[i].object.scale, 0.5, {
+              x: 0.5,
+              ease: Expo.easeOut,
+            });
+            this.tl.to(intersects[i].object.position, 0.5, {
+              x: 2,
+              ease: Expo.easeOut,
+            });
+            this.tl.to(
+              intersects[i].object.rotation,
+              0.5,
+              { y: Math.PI * 0.5, ease: Expo.easeOut },
+              "=-1.5"
+            );
+          }
+        }
+
+        render();
+
+        window.addEventListener("mousemove", onMouseMove);
+      </script>
+    </body>
+  </body>
+</html>
